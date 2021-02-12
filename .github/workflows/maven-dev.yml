@@ -38,4 +38,4 @@ jobs:
         repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${{ github.repository }}" }]'
         servers: '[{ "id": "github", "username": "${{ github.repository_owner }}", "password": "${{ github.token }}" }]'
     - name: Deploy with Maven
-      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
+      run: mvn deploy -e -X -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
