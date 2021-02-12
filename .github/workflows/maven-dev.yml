@@ -35,7 +35,7 @@ jobs:
     - name: Update settings.xml
       uses: whelk-io/maven-settings-xml-action@v14
       with:
-        repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/nordeck/jitsi-xmpp-extensions" }]'
+        repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${{ github.repostitory }}" }]'
         servers: '[{ "id": "github", "username": "${{ github.repository_owner }}", "password": "${{ github.token }}" }]'
     - name: Deploy with Maven
-      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/nordeck/jitsi-xmpp-extensions
+      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repostitory }}
