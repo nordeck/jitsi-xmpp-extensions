@@ -35,7 +35,7 @@ jobs:
     - name: Update settings.xml
       uses: whelk-io/maven-settings-xml-action@v14
       with:
-        repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${{ github.repostitory }}" }]'
+        repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/${{ github.repository }}" }]'
         servers: '[{ "id": "github", "username": "${{ github.repository_owner }}", "password": "${{ github.token }}" }]'
     - name: Deploy with Maven
-      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repostitory }}
+      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/${{ github.repository }}
