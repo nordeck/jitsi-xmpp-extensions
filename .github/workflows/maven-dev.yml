@@ -12,7 +12,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
@@ -31,7 +30,7 @@ jobs:
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     - name: Set pom version
       run: |
-        mvn versions:set -DnewVersion=2.1-${{ steps.vars.outputs.sha_short }}
+        mvn versions:set -DnewVersion=1.0-${{ steps.vars.outputs.sha_short }}
         mvn versions:commit
     - name: Update settings.xml
       uses: whelk-io/maven-settings-xml-action@v14
