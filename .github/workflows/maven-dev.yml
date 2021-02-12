@@ -38,4 +38,4 @@ jobs:
         repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/nordeck/jitsi-xmpp-extensions" }]'
         servers: '[{ "id": "github", "username": "${{ github.repository_owner }}", "password": "${{ secrets.GITHUB_TOKEN }}" }]'
     - name: Deploy with Maven
-      run: mvn deploy -X -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/nordeck/jitsi-xmpp-extensions
+      run: mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/nordeck/jitsi-xmpp-extensions
