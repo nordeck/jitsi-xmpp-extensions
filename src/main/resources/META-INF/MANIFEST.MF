@@ -5,7 +5,7 @@ Built-By: sergey.vasiluk
 Bundle-ManifestVersion: 2
 Bundle-Name: jitsi-xmpp-extensions
 Bundle-SymbolicName: org.jitsi.xmpp-extensions
-Bundle-Version: 1.0.0.SNAPSHOT
+Bundle-Version: ${pom.version}
 Created-By: Apache Maven Bundle Plugin
 Export-Package: org.jitsi.xmpp.extensions;uses:="org.jivesoftware.smack.
  packet,org.jivesoftware.smack.provider,org.jivesoftware.smack.util,org.

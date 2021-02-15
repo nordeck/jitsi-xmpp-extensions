@@ -56,6 +56,17 @@
   </dependencies>
 
   <build>
+
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources/META-INF</directory>
+        <includes>
+          <include>MANIFEST.MF</include>
+        </includes>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -101,6 +112,9 @@
       </plugin>
     </plugins>
   </build>
+
+
+
 
   <repositories>
     <repository>
