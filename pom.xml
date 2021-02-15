@@ -57,16 +57,6 @@
 
   <build>
 
-    <resources>
-      <resource>
-        <filtering>true</filtering>
-        <directory>src/main/resources/META-INF</directory>
-        <includes>
-          <include>MANIFEST.MF</include>
-        </includes>
-      </resource>
-    </resources>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -101,7 +91,22 @@
             <artifactId>maven-jar-plugin</artifactId>
             <configuration>
               <archive>
-                <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                <manifestEntries>
+                  <Bundle-Version>${pom.version}</Bundle-Version>
+                  <Manifest-Version>1.0</Manifest-Version>
+                  <Bundle-SymbolicName>org.jitsi.xmpp-extensions</Bundle-SymbolicName>
+                  <Built-By>maven</Built-By>
+                  <Bnd-LastModified>1613417770890</Bnd-LastModified>
+                  <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+                  <Import-Package>org.apache.commons.lang3;version="[3.9,4)",org.jitsi.utils;version="[1.0,2)",org.jitsi.utils.logging;version="[1.0,2)",org.jitsi.xmpp.extensions,org.jitsi.xmpp.extensions.colibri,org.jitsi.xmpp.extensions.condesc,org.jitsi.xmpp.extensions.health,org.jitsi.xmpp.extensions.jingle,org.jitsi.xmpp.extensions.jitsimeet,org.jivesoftware.smack;version="[4.2,5)",org.jivesoftware.smack.packet;version="[4.2,5)",org.jivesoftware.smack.provider;version="[4.2,5)",org.jivesoftware.smack.util;version="[4.2,5)",org.jivesoftware.smackx.bob;version="[4.2,5)",org.jivesoftware.smackx.si.packet;version="[4.2,5)",org.jivesoftware.smackx.xdata.packet;version="[4.2,5)",org.jivesoftware.smackx.xdata.provider;version="[4.2,5)",org.jxmpp.jid;version="[0.6,1)",org.jxmpp.jid.impl;version="[0.6,1)",org.jxmpp.jid.parts;version="[0.6,1)",org.jxmpp.stringprep;version="[0.6,1)",org.jxmpp.util;version="[0.6,1)",org.xmlpull.v1</Import-Package>
+                  <Require-Capability>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(version=1.8))"</Require-Capability>
+                  <Tool>Bnd-3.0.0.201509101326</Tool>
+                  <Export-Package>org.jitsi.xmpp.extensions;uses:="org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jivesoftware.smack.util,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.coin;uses:="org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jivesoftware.smack.util,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.colibri;uses:="org.jitsi.xmpp.extensions,org.jitsi.xmpp.extensions.jingle,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jxmpp.jid,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.condesc;uses:="org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.health;uses:="org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.inputevt;uses:="org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.jibri;uses:="org.jitsi.xmpp.extensions,org.jitsi.xmpp.extensions.health,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jxmpp.jid,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.jingle;uses:="org.jitsi.utils,org.jitsi.xmpp.extensions,org.jitsi.xmpp.extensions.colibri,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jxmpp.jid,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.jingleinfo;uses:="org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.jitsimeet;uses:="org.jitsi.utils.logging,org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jxmpp.jid,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.rayo;uses:="org.jitsi.xmpp.extensions,org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jxmpp.jid,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.thumbnail;uses:="org.jivesoftware.smack.packet,org.jivesoftware.smack.provider,org.jivesoftware.smackx.bob,org.jivesoftware.smackx.si.packet,org.xmlpull.v1";version="1.0.0",org.jitsi.xmpp.extensions.vcardavatar;uses:="org.jivesoftware.smack,org.jivesoftware.smack.packet";version="1.0.0"</Export-Package>
+                  <Bundle-Name>jitsi-xmpp-extensions</Bundle-Name>
+                  <Bundle-Version>${pom.version}</Bundle-Version>
+                  <Created-By>Apache Maven Bundle Plugin</Created-By>
+                  <Build-Jdk>1.8.0</Build-Jdk>
+                </manifestEntries>
               </archive>
             </configuration>
           </plugin>
