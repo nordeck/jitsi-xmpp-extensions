@@ -183,5 +183,9 @@ public class IqProviderUtils
         ProviderManager.addExtensionProvider(Colibri2Error.ELEMENT,
                 Colibri2Error.NAMESPACE,
                 new Colibri2Error.Provider());
+
+        ProviderManager.addExtensionProvider(TraceParent.ELEMENT,
+                 TraceParent.NAMESPACE,
+                 new TraceParentProvider());
     }
 }

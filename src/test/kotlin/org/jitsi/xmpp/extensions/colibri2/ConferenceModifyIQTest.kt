@@ -18,12 +18,16 @@ package org.jitsi.xmpp.extensions.colibri2
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import org.jitsi.xmpp.extensions.IQUtils
+import org.jitsi.xmpp.extensions.TraceParent
 import org.jivesoftware.smack.parsing.SmackParsingException
 
 class ConferenceModifyIQTest : ShouldSpec() {
     val provider = ConferenceModifyIQProvider()
     init {
+        IqProviderUtils.registerProviders()
+
         context("Parse a simple IQ correctly") {
             val conferenceModifyIQ = IQUtils.parse(
                 """
@@ -58,6 +62,20 @@ class ConferenceModifyIQTest : ShouldSpec() {
                     provider
                 )
             }
+        }
+        context("Parse IQ with TraceParent extension") {
+            val conferenceModifyIQ = IQUtils.parse(
+                """
+                    <iq type='get' from='example.com' to='example.com'>
+                        <conference-modify xmlns='http://jitsi.org/protocol/colibri2' meeting-id='abc'>
+                            <traceparent xmlns='jitsi:opentelemetry' trace_id='1586bb16ccd4475a9f494bf43563ce28'
+                            parent_id='6e39899d78bfa0ae' trace_flags='35'/>
+                        </conference-modify>
+                    </iq>
+                """.trimIndent(),
+                provider
+            )
+            conferenceModifyIQ.getExtension(TraceParent::class.java) shouldNotBe null
         }
     }
 }
